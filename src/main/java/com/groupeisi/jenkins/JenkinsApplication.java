@@ -15,8 +15,4 @@ public class JenkinsApplication {
 		SpringApplication.run(JenkinsApplication.class, args);
 	}
 
-	@GetMapping
-	public String jenkins(){
-		return "Welcome jenkins website";
-	}
 }
