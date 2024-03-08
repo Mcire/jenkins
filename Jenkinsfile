@@ -21,7 +21,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    sh "docker login -u your-docker-username -p your-docker-password"
+                    sh "docker login -u che444 -p rosario19@"
                     sh "docker push che444/jenkins-che:latest"
                 }
             }
