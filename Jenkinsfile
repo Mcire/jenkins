@@ -14,7 +14,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t che444/jenkins ."
+                    sh "docker build -t che444/jenkins-che ."
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]){
                     sh "docker login -u che444 -p ${dockerhubpwd}"
-                    sh "docker push che444/jenkins:latest"
+                    sh "docker push che444/jenkins-che"
                 }
             }
         }
