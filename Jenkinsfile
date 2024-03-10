@@ -14,15 +14,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t che444/jenkins-che:latest ."
+                    sh "docker build -t che444/jenkins ."
                 }
             }
         }
         stage('Push Docker Image') {
             steps {
-                script {
-                    sh "docker login -u che444 -p rosario19@"
-                    sh "docker push che444/jenkins-che:latest"
+                withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]){
+                    sh "docker login -u che444 -p ${dockerhubpwd}"
+                    sh "docker push che444/jenkins:latest"
                 }
             }
         }
