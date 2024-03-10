@@ -1,10 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Initialize'){
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
         stage('Build') {
             steps {
                 sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin/mvn clean package"
