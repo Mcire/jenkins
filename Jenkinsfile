@@ -14,7 +14,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'which docker || (echo "Docker not found in PATH"; exit 1)'
                     sh "docker build -t che444/jenkins-che ."
                 }
             }
